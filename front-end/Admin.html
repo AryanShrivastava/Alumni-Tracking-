@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SignUp and Login</title>
+	<link rel="stylesheet" type="text/css" href="signup-style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://s3.amazonaws.com/smatbot/files/smatbot.css.gz">
+	<script type="text/javascript">var otherPulseDiv=document.createElement("DIV");otherPulseDiv.id="pulse_smatbot_unique";var mainDiv=document.createElement("DIV");otherPulseDiv.appendChild(mainDiv);mainDiv.id="closed";var img=document.createElement("Img");img.id="main_icon_smatest";img.src="https://s3.ap-south-1.amazonaws.com/custpostimages/sb_images/chat-loading.gif";var imgLogo=document.createElement("Img");imgLogo.id="logo-smatest";imgLogo.classList.add("logo-smatest");mainDiv.appendChild(img);mainDiv.classList.add("pointer");mainDiv.classList.add("smat-div-before");img.classList.add("smat-main-btn-before");otherPulseDiv.classList.add("pulse-div-before");document.addEventListener("DOMContentLoaded",function(event){document.body.appendChild(otherPulseDiv)});</script><script type="text/javascript">!function(t,e){"use strict";var r=function(t){try{var r=e.head||e.getElementsByTagName("head")[0],a=e.createElement("script"),b=document.getElementsByTagName("script")[0];a.setAttribute("type","text/javascript"),a.setAttribute("src",t),a.async=!0,r.insertBefore(a,b)}catch(t){}};t.chatbot_id=2733,r("https://s3.amazonaws.com/smatbot/files/smatbot_plugin.js.gz")}(window,document);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/1.5.1/fingerprint2.min.js"></script>
+
+</head>
+<body>
+
+<div class="container" id="container">
+<div class="form-container sign-up-container">
+
+<form action="">
+	<h1>Create Account</h1>
+	<input type="text" name="name" placeholder="Name">
+	<input type="email" name="Email" placeholder="Email ID">
+	<input type="number" name="phone" placeholder="Contact Number">
+    <input type="text" name="College" placeholder="College Name">
+    <button>SignUp</button>
+</form>
+</div>
+<div class="form-container sign-in-container">
+	<form action="#">
+		<h1>Sign In</h1>
+		<div class="social-container">
+		<a href="#" class="social"><i class="fa fa-facebook"></i></a>
+		<a href="#" class="social"><i class="fa fa-google"></i></a>
+		<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+	</div>
+	<span>or use your account</span>
+	<input type="email" name="email" placeholder="Email">
+	<input type="password" name="password" placeholder="Password">
+	<input type="college" name="college" placeholder="College">
+	<a href="#">Forgot Your Password</a>
+
+	<a href="home.html">Log In</a>
+	</form>
+</div>
+<div class="overlay-container">
+	<div class="overlay">
+		<div class="overlay-panel overlay-left">
+			<h1>Welcome Back!</h1>
+			<p>To keep connected with us please login with your personal info</p>
+			<button class="ghost" id="signIn">Sign In</button>
+		</div>
+		<div class="overlay-panel overlay-right">
+			<h1>Hello, Friend!</h1>
+			<p>Enter your details and start journey with us</p>
+			<button class="ghost" id="signUp">Sign Up</button>
+		</div>
+	</div>
+</div>
+</div>
+
+<script type="text/javascript">
+	const signUpButton = document.getElementById('signUp');
+	const signInButton = document.getElementById('signIn');
+	const container = document.getElementById('container');
+
+	signUpButton.addEventListener('click', () => {
+		container.classList.add("right-panel-active");
+	});
+	signInButton.addEventListener('click', () => {
+		container.classList.remove("right-panel-active");
+	});
+</script> 
+
+
+</body>
+</html>
