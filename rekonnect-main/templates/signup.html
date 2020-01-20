@@ -1,15 +1,24 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
-<title>User Signup</title>
+<title>SignUp</title>
 {% endblock title %}
 
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+<script src="{% static 'js/signup.js' %}"></script>
+{% endblock styles %}
+
 {% block content %}
+<form method="POST">
+  {% csrf_token %}
+  <img src="{% static 'img/register_big.png' %}" alt="wait" style="width: 100%;">
+  <p></p>
+  {{form.as_p}}
+  <p></p>
+  <button type="submit">SIGNUP</button>
+  <button type="linkedin">LINKEDIN</button>
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" name="submit">Signup</button>
-    </form>
-
+</form>
 {% endblock content %}

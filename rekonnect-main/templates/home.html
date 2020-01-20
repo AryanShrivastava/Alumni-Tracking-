@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +12,7 @@
     <style>
       @import 'https://fonts.googleapis.com/css?family=Permanent Marker';
     body {
-  background-image: url(ooo.png);
+  background-image: url('/static/img/ooo.png');
         background-size: cover;
    font-family: 'Roboto Condensed', sans-serif;
   font-weight: bold;
@@ -184,7 +186,7 @@
 </head>
 <body>
   <div class="header">
-    <img src="Capture.PNG" alt="logo" />
+    <img src="{% static 'img/Capture.png' %}" alt="logo" />
   </div>
       <div class="container">
       
@@ -197,10 +199,10 @@
     </div>
     <div class="navigation-menu">
         <ul>
-          <li><a href="https://www.google.com">HOME</a></li>
+          <li><a href="{% url 'core:home' %}">HOME</a></li>
           <li><a href="">GALLERY</a></li>
           <li><a href="">EVENTS</a></li>
-          <li><a href="">PROFILE</a></li>
+          <li><a href="{% url 'core:profile' %}">PROFILE</a></li>
           <li><a href="">DONATION</a></li>
       </ul>
     </div>
