@@ -10,8 +10,7 @@ html {
   
 header {
     padding: 20px 0;
-    background:	  #29293d
-    ;
+    background:	  #29293d;
     box-shadow: black;
   
   }
@@ -96,7 +95,7 @@ header {
   }
   
   .hero {
-  display: inline-block;
+  display: inline-flexbox;
   position: relative;
   width: 400px;
   min-width: 400px;
@@ -104,7 +103,7 @@ header {
   border-radius: 30px;
   overflow:hidden;
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
-  margin: 30px;
+  margin: 50px;
 }
 
 .hero-profile-img {
@@ -120,10 +119,6 @@ header {
   height: 65%;
   width: 108%;
   transform: skew(19deg, -9deg);
-}
-
-.second .hero-description-bk {
-  background-image: linear-gradient(-20deg , #bb7413, #e7d25c)
 }
 
 .hero-logo {
