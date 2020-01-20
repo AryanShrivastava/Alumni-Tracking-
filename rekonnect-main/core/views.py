@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView, DetailView
-from registration.models import User
+from django.contrib.auth.models import User
 
 # Create your views here.
 class index(TemplateView):
