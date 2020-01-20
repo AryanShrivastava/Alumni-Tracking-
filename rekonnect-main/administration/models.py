@@ -2,8 +2,8 @@ from django.db import models
 
 # Create your models here.
 class AdminModel(models.Model):
-    username = models.CharField(unique=True, editable=False, max_length=50)
-    email = models.EmailField(editable=False)
+    username = models.CharField(unique=True, editable=True, max_length=50)
+    email = models.EmailField(editable=True)
     password = models.CharField(max_length=50)
     college_name = models.CharField(max_length=100)
 
