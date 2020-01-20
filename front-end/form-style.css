@@ -1,0 +1,32 @@
+body{
+    background-color: #3399ff;
+}
+
+h1{
+    text-align: center;
+    color: #cc6600;
+    font-size: 50px;
+}
+
+form{
+    margin: 20px auto;
+    width: 320px;
+    color: #cc6600;
+
+}
+
+input{
+    padding: 10px;
+    font-size: inherit;
+}
+
+input{
+    display: block;
+    margin-bottom: 25px;
+    width: 100%;
+    border:2;
+}
+
+.bro{
+    align-content: center;
+}
