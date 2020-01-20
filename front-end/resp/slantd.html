@@ -69,6 +69,7 @@
  
 
 .navigation-menu ul li {
+    position: top;
   list-style: none;
   font-family: impact;
 
@@ -77,12 +78,13 @@
 }
 
 .navigation-menu {
+  position: top;
   content: '';
   position: fixed;
   top: 0;
   right: 0;
   width: 50%;
-  background: linear-gradient(253deg, #000000,	#778899, #ffff66);
+  background: linear-gradient(253deg,	#ffff66,#43f4fa );
   background-size: 300% 300%;
   -webkit-animation: Background 5s ease infinite;
   -moz-animation: Background 5s ease infinite;
@@ -90,35 +92,41 @@
   height: 100%;
   transform: skewX(0deg) translate(100%,0);
   transform-origin: top right;
-  transition: all .2s ease-in;
-  z-index: -1;
+  transition: all .3s ease-in;
+  z-index: 1;
 }
 .navigation-menu ul {
   transform: skewX(-8deg);
+  position: top;
   transform-origin: top left;
   position: fixed;
   right: 120px;
   top: 120px;
   width: 400px;
   text-align: right;
+  z-index: 1;
 
 }
 .navigation-menu ul li {
-  position: relative;
+  position: top;
   text-shadow: black 5px;
     z-index: 999;
   font-size: 32px;
   color: hsl(0,0%,10%);
   line-height: 64px;
+  
 }
 .navigation-menu ul li  a {
   border: none;
+  position: top;
   text-shadow: black 5px;
   color: hsl(0,0%,10%);
   text-decoration: none;
+  z-index: 1;
 }
 .navigation-menu.active {
   transform: skewX(8deg) translate(0,0);
+  z-index: 1;
     
 }
 
@@ -151,6 +159,7 @@
 .navigation-menu.active li:nth-child(6) {
   transition-delay: .8s;
 }
+
         .hero h1{
              
             margin-top: 178px;
@@ -171,9 +180,13 @@
             font-family: impact;
         }
         
+        hr.style1{
+	border-top: 1px solid #8c8b8b;
+}
 
     </style>
 </head>
+
 <body>
   <div class="header">
     <img src="Capture.PNG" alt="logo" />
@@ -189,15 +202,18 @@
     </div>
     <div class="navigation-menu">
         <ul>
-          <li><a href="">HOME</a></li>
+          <li><a href="https://www.google.com">HOME</a></li>
           <li><a href="">GALLERY</a></li>
           <li><a href="">EVENTS</a></li>
           <li><a href="">PROFILE</a></li>
           <li><a href="">DONATION</a></li>
-          <div class="active-pink-3 active-pink-4 mb-4">
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-          </div>
+          <hr class="style1">
+          <li><a href="">Logout</a></li>
+          
+
+
       </ul>
+
     </div>
   </div>
   <section class="hero">
@@ -205,6 +221,12 @@
   </section>
   <div id="rt-3c3a7436567df7c878e0bcd14dbe7ba5" data-floating="true" data-side="left" data-width="700" data-height="500" data-image="https://img.icons8.com/officel/80/000000/comment-discussion.png"></div> <script src="https://rumbletalk.com/client/?Nf:Oh1tA"></script>
 </div>
+
+<script>
+  function myFunction() {
+    location.replace("https://www.w3schools.com")
+  }
+  </script>
 
 <script>
     var navButton = document.querySelector('.navigation-button');
@@ -226,7 +248,7 @@ function closeMenu(event) {
     navMenu.classList.remove('active');
   }
 }
-  navButton.addEventListener('click', openMenu, false);
+  navButton.addEventListener('click', openMenu);
 
 win.addEventListener('click',closeMenu, false);
 
