@@ -33,3 +33,10 @@ def logout(request):
     if logged_in:
         logged_in = False
     return HttpResponseRedirect(reverse('core:index'))
+
+def massmailer(request):
+    send_mail('HELLO THIS IS SUBJECT',
+              "HELLO THIS IS TesT",
+              'devaryan.gfgsrm@gmail.com',
+              ['ss1874@srmist.edu.in','absa0545@gmail.com', 'devaryan.gfgsrm@gmail.com'],
+              fail_silently=False)

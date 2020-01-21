@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views.generic import TemplateView, DetailView
+from django.views.generic import TemplateView, DetailView, ListView
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
-from registration.models import User 
+from registration.models import Profile
+import json
+from event.models import event_notify
 
 # Create your views here.
 class index(TemplateView):
@@ -42,21 +44,38 @@ def SaveUser(request):
         lat = request.POST.get('lat')
         lng = request.POST.get('lng')
 
-        user = User.objects.get(id=request.user.id)
-        user.first_name = fname
-        user.last_name = lname
-        user.passout_year = passout_year
-        user.registration_number = reg
-        user.phone = phone
+        profile = Profile.objects.get(user=request.user)
+        profile.first_name = fname
+        profile.last_name = lname
+        profile.passout_year = passout_year
+        profile.registration_number = reg
+        profile.phone = phone
         
-        user.lat = lat
-        user.lng = lng
+        profile.lat = lat
+        profile.lng = lng
         
-        user.skills1 = skills1
-        user.skills2 = skills2
-        user.skills3 = skills3
+        profile.skills1 = skills1
+        profile.skills2 = skills2
+        profile.skills3 = skills3
 
-        user.proffesion = profession
+        profile.proffesion = profession
 
-        user.save()
+        profile.save()
     return HttpResponseRedirect(reverse('core:profile'))
+
+def saved(request):
+    allentries = Profile.objects.values_list('lat', 'lng')
+    locations = []
+    for i in allentries:
+        e = {'lat': float(i[0]), 'lng': float(i[1])}
+        locations.append(e)
+    print(locations)
+    json_loc = json.dumps(locations)
+    return render(request, 'map.html', {'data':json_loc})
+
+class EventList(ListView):
+    model = event_notify
+    template_name = 'events.html'
+
+class GalleryView(TemplateView):
+    template_name = 'gallery.html'

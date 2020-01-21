@@ -1,112 +1,157 @@
-{% extends "user_base.html" %}
 {% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 
-{% block title %}
-<title>Profile Edit</title>
-{% endblock title %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-{% block styles %}
-<link rel="stylesheet" href="m.css">
-{% endblock styles %}
+</head>
 
-{% block content %}
-<div class="container emp-profile">
-    <form method="post">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-md-4">
-                <div class="profile-img">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                        alt="" />
-                    <div class="file btn btn-lg btn-primary">
-                        Change Photo
-                        <input type="file" name="file" />
+<body onload="getLocation()">
+
+    <header>
+        <div class="container">
+            <div class="logo-box">
+                <a href="/">
+                    <img src="{% static 'img/Capture.png' %}" height="100" ,width="80" class="centre">
+                </a>
+            </div>
+            <nav class="navbar navbar-expand-lg">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a href="{% url 'core:home' %}">HOME</a></li>
+                    <li class="nav-item"><a href="">GALLERY</a></li>
+                    <li class="nav-item"><a href="">EVENTS</a></li>
+                    <li class="nav-item"><a href="{% url 'core:profile' %}">PROFILE</a></li>
+                    <li class="nav-item"><a href="{% url 'core:donation' %}">DONATION</a></li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="{% url 'registration:logout' %}">LOGOUT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container emp-profile">
+        <form method="post" action="{% url 'core:profile-save' %}">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                            alt="" />
+                        <div class="file btn btn-lg btn-primary">
+                            Change Photo
+                            <input type="file" name="file" />
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-2">
+                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Finishing Editing" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-work">
+                        <p>SKILLS</p>
+                        <input type="text" name="skill1"><br />
+                        <input type="text" name="skill2"><br />
+                        <input type="text" name="skill3"><br />
+
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>User Name</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Rishabh</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Name</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <p><input type="text" name="first_name" placeholder="FName"></p>
+                                </div>
+                                <div class="col-md-3">
+                                    <p><input type="text" name="secondary_name" placeholder="LName"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><input type="email" name="email" placeholder="Email ID"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Year</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><input type="number" name="year" placeholder="Year Of Graduation"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Registration Number</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><input type="text" name="reg" placeholder="College Registration ID"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Phone</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><input type="tel" name="phone" placeholder="Contact Number"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Profession</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><input type="text" name="proffesion" placeholder="Proffesion"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" id="lat" name="lat" value="">
+                        <input type="text" id="long" name="long" value="">
                     </div>
                 </div>
             </div>
+        </form>
+    </div>
 
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+        }
+        function showPosition(position) {
+            document.getElementById("lat").value = position.coords.latitude;
+            document.getElementById("long").value = position.coords.longitude;
+        }
+    </script>
 
-            <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Finishing Editing" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="profile-work">
-                    <p>SKILLS</p>
-                    <input type="text" name="skill1"><br />
-                    <input type="text" name="skill2"><br />
-                    <input type="text" name="skill3"><br />
+</body>
 
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="tab-content profile-tab" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>User Name</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>Rishabh</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Name</label>
-                            </div>
-                            <div class="col-md-3">
-                                <p><input type="text" name="first_name" placeholder="FName"></p>
-                            </div>
-                            <div class="col-md-3">
-                                <p><input type="text" name="secondary_name" placeholder="LName"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Email</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p><input type="email" name="email" placeholder="Email ID"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Year</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p><input type="number" name="year" placeholder="Year Of Graduation"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Registration Number</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p><input type="text" name="reg" placeholder="College Registration ID"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Phone</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p><input type="tel" name="phone" placeholder="Contact Number"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Profession</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p><input type="text" name="proffesion" placeholder="Proffesion"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="button">Location</button>
-                </div>
-            </div>
-        </div>
-</form>
-</div>
-{% endblock content %}
+</html>

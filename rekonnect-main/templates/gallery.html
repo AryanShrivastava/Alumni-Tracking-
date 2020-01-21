@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
@@ -18,36 +19,36 @@
         <div class="border"></div>
         <div class="gallery">
 
-          <a href="img/1.png" class="image">
-            <img src="img/1.png" alt="">
+          <a href="{% static 'img/1.png' %}" class="image">
+            <img src="{% static 'img/1.png' %}" alt="">
           </a>
 
-          <a href="img/2.png" class="image">
-            <img src="img/2.png" alt="">
+          <a href="{% static 'img/2.png' %}" class="image">
+            <img src="{% static 'img/2.png' %}" alt="">
           </a>
 
-          <a href="img/3.png" class="image">
-            <img src="img/3.png" alt="">
+          <a href="{% static 'img/3.png' %}" class="image">
+            <img src="{% static 'img/3.png' %}" alt="">
           </a>
 
-          <a href="img/4.png" class="image">
-            <img src="img/4.png" alt="">
+          <a href="{% static 'img/4.png' %}" class="image">
+            <img src="{% static 'img/4.png' %}" alt="">
           </a>
 
-          <a href="img/5.png" class="image">
-            <img src="img/5.png" alt="">
+          <a href="{% static 'img/5.png' %}" class="image">
+            <img src="{% static 'img/5.png' %}" alt="">
           </a>
 
-          <a href="img/6.png" class="image">
-            <img src="img/6.png" alt="">
+          <a href="{% static 'img/6.png' %}" class="image">
+            <img src="{% static 'img/6.png' %}" alt="">
           </a>
 
-          <a href="img/7.png" class="image">
-            <img src="img/7.png" alt="">
+          <a href="{% static 'img/7.png' %}" class="image">
+            <img src="{% static 'img/7.png' %}" alt="">
           </a>
 
-          <a href="img/8.png" class="image">
-            <img src="img/8.png" alt="">
+          <a href="{% static 'img/8.png' %}" class="image">
+            <img src="{% static 'img/8.png' %}" alt="">
           </a>
         </section>
         <div class="footer">
@@ -56,7 +57,7 @@
         <div id="cont">
         <div class="footer_center">
           <a href="/">
-              <img src="img/Capture.PNG "height="100",width="80">
+              <img src="{% static 'img/Capture.png' %}"height="100",width="80">
             </a>  
         </div>
        

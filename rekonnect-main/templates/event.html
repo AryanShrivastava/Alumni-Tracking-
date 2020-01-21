@@ -1,11 +1,11 @@
-
+{% load static %}
 <html>
 <head>
 <title>Login Form Design</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form-style.css' %}">
 <body>
     <div class="loginbox">
-    <img src="Capture.png" class="avatar">
+    <img src="{% static 'img/Capture.png' %}" class="avatar">
         <h1>Event Push</h1>
         <form>
             <p>Event Name</p>
