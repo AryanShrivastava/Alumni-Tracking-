@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body onload="getLocation()">
+<p id="demo">Hello</p>
+<iframe id="myFrame" src="" width="360" height="270" frameborder="0" style="border:0"></iframe>
+
+<form method="POST" action="savelocation/">
+    {% csrf_token %}
+    <input type="text" id="lat" name="lat" value="">
+    <input type="text" id="long" name="long" value="">
+    <button type="submit" name="submit">Submit</button>
+</form>
+
+<script>
+var x = document.getElementById("demo");
+function getLocation() {
+ if (navigator.geolocation) {
+ navigator.geolocation.getCurrentPosition(showPosition);
+ } else { 
+ x.innerHTML = "Geolocation is not supported by this browser.";
+ }
+}
+function showPosition(position) {     
+ x.innerHTML = "Latitude: " + position.coords.latitude + 
+ "<br>Longitude: " + position.coords.longitude;
+ document.getElementById("myFrame").src = 'http://maps.google.com/maps?q='+position.coords.latitude+', '+position.coords.longitude+'&z=15&output=embed';
+ document.getElementById("lat").value=position.coords.latitude;
+ document.getElementById("long").value=position.coords.longitude;
+}
+</script>
+</body>
+</html> 
