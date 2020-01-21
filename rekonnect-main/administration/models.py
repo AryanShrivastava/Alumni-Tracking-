@@ -14,7 +14,7 @@ class AdminModel(models.Model):
 class Admin_userinfo(models.Model):
     username = models.ForeignKey(AdminModel, on_delete=models.CASCADE)
     stud_name = models.CharField(editable=True, max_length=50, default='')
-    email = models.EmailField(editable=True)
+    passout_year = models.IntegerField(default=1990)
 
     def __str__(self):
         return self.stud_username
