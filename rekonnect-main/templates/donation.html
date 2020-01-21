@@ -1,0 +1,25 @@
+{% extends "user_base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Donation Form</title>
+{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/form-style.css' %}">
+{% endblock styles %}
+    
+{% block content %}
+<div class="loginbox">
+        <h1>Donation Form</h1>
+        <form>
+            <p>Name</p>
+            <input type="text" name="name" placeholder="Name">
+            <p>Email ID</p>
+            <input type="email" name="email " placeholder="Email ID">
+            <input type="text" name="event" placeholder="Event Name">
+            <input type="image" src="{% static 'img/Payment_QR.png' %}"  width="80px" height="200px">
+        </form>
+        
+    </div>
+{% endblock content %}
