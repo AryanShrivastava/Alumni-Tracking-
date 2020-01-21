@@ -13,7 +13,7 @@ class AdminModel(models.Model):
 
 class Admin_userinfo(models.Model):
     username = models.ForeignKey(AdminModel, on_delete=models.CASCADE)
-    stud_username = models.CharField(unique=True, editable=True, max_length=50)
+    stud_name = models.CharField(editable=True, max_length=50, default='')
     email = models.EmailField(editable=True)
 
     def __str__(self):
