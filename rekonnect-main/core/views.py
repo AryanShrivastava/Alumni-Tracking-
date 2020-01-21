@@ -15,3 +15,6 @@ class ProfileView(DetailView):
 
     def get_object(self):
         return get_object_or_404(User, pk=self.request.user.id)
+
+class DonationView(TemplateView):
+    template_name = 'donation.html'
