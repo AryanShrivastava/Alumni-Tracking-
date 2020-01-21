@@ -7,4 +7,5 @@ urlpatterns = [
     path('login/', login, name='login'),
     path('', index, name='index'),
     path('logout/', logout, name='logout'),
+    path('event/', include('event.urls')),
 ]
