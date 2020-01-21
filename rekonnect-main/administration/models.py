@@ -16,3 +16,7 @@ class Admin_userinfo(models.Model):
     stud_username = models.CharField(unique=True, editable=True, max_length=50)
     email = models.EmailField(editable=True)
     college_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.stud_username
+
