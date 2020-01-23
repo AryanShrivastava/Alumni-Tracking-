@@ -90,6 +90,11 @@ body {
     text-shadow: 1px 2px 1px rgba(0, 0, 0, .6);
   }
   
+
+  button{
+    margin: 16px;
+  }
+
   .glow-on-hover {
     width: 150px;
     height: 150px;
@@ -119,7 +124,7 @@ body {
     animation: glowing 20s linear infinite;
     opacity: 0;
     transition: opacity .3s ease-in-out;
-    border-radius: 10px;
+    border-radius: 100px;
 }
 
 .glow-on-hover:active {
@@ -143,7 +148,7 @@ body {
     background: #fff;
     left: 0;
     top: 0;
-    border-radius: 10px;
+    border-radius: 100%;
 }
 
 @keyframes glowing {

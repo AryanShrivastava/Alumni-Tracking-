@@ -44,7 +44,7 @@ def SaveUser(request):
         lat = request.POST.get('lat')
         lng = request.POST.get('lng')
 
-        profile = Profile.objects.get(user=request.user)
+        profile = Profile.objects.get(id=request.user.id)
         profile.first_name = fname
         profile.last_name = lname
         profile.passout_year = passout_year

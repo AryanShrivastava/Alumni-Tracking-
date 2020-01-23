@@ -22,12 +22,12 @@
           </div>
               <div class="navbar ">
                
-                <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
-                <a href="#"><i class="fa fa-fw fa-images"></i>Gallery</a>
-                <a href="#"><i class="fa fa-fw fa-calendar-alt"></i>Events</a>
-                <a href="#"><i class="fa fa-fw fa-user"></i>Profile</a>
-                <a href="#"><i class="fa fa-fw fa-gift"></i>Donation</a>
-                <a href="#"><i class="fa fa-fw fa-sign-out-alt"></i>Logout</a>
+                <a class="active" href="{% url 'core:home' %}"><i class="fa fa-fw fa-home"></i> Home</a>
+                <a href="{% url 'core:gallery' %}"><i class="fa fa-fw fa-images"></i>Gallery</a>
+                <a href="{% url 'core:events' %}"><i class="fa fa-fw fa-calendar-alt"></i>Events</a>
+                <a href="{% url 'core:profile' %}"><i class="fa fa-fw fa-user"></i>Profile</a>
+                <a href="{% url 'core:donation' %}"><i class="fa fa-fw fa-gift"></i>Donation</a>
+                <a href="{% url 'registration:logout' %}"><i class="fa fa-fw fa-sign-out-alt"></i>Logout</a>
               </div>
            
           </header>

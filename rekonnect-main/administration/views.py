@@ -1,6 +1,8 @@
 from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from .models import AdminModel
+from event.models import event_notify
+from django.core.mail import send_mail
 
 logged_in = False
 
@@ -40,3 +42,22 @@ def massmailer(request):
               'devaryan.gfgsrm@gmail.com',
               ['ss1874@srmist.edu.in','absa0545@gmail.com', 'devaryan.gfgsrm@gmail.com'],
               fail_silently=False)
+
+def event(request):
+    return render(request, 'admin-event.html')
+
+def push_event(request):
+    if request.method == 'POST':
+        name = request.POST.get('EventName', '')
+        date = request.POST.get('Date', '')
+        venue = request.POST.get('Venue', '')
+        about = request.POST.get('caption', '')
+
+        a = event_notify.objects.create(event_name=name, date=date, venue=venue, about=about)
+        a.save()
+
+        massmailer(request)
+        return HttpResponseRedirect(reverse('administration:index'))
+
+
+
